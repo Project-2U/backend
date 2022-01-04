@@ -1,6 +1,6 @@
 # Backend Autoelectricos del Cauca
 
-Backend para la aplicacion de <<Autoelectricos del Cauca>>
+Backend para la aplicacion de **Autoelectricos del Cauca**
 
 ## Instalacion
 

@@ -1,27 +1,21 @@
-from graphene import ObjectType, String , Schema
-from graphene import relay
-from graphene_django.filter import DjangoFilterConnectionField
+from graphene import Schema
 
-from .data.products import types
-from .data.users.types import UserNode
-from .data.orders.types import OrderNode
-from .data.notifications.types import NotificationNode
+#QUERIES AND MUTATIONS
+from .data.orders.orders_schema import Query as OrderQuery#, Mutation as OrderMutation
+from .data.products.products_schema import Query as ProductQuery, Mutation as ProductMutation
+from .data.products.order_product_schema import Query as OrderProductQuery, Mutation as OrderProductMutation
+from .data.notifications.notifications_schema import Query as NotificationQuery, Mutation as NotificationMutation
+from .data.users.users_schema import Query as UserQuery#, Mutation as UserMutation
 
-class Query(ObjectType):    
 
-    products= DjangoFilterConnectionField(types.ProductNode)
-    product= relay.Node.Field(types.ProductNode)
 
-    orders_products= DjangoFilterConnectionField(types.OrderProductNode)
-    order_produc=relay.Node.Field(types.OrderProductNode)
 
-    users= DjangoFilterConnectionField(UserNode)
-    user= relay.Node.Field(UserNode)
 
-    orders= DjangoFilterConnectionField(OrderNode)
-    order = relay.Node.Field(OrderNode)
+class Query(UserQuery,OrderQuery,NotificationQuery, OrderProductQuery,ProductQuery):    
+    pass
+    
+class Mutation(ProductMutation,OrderProductMutation, NotificationMutation):
+    pass
+ 
 
-    notifications= DjangoFilterConnectionField(NotificationNode)
-    notidication= relay.Node.Field(NotificationNode)
-
-ROOT_SCHEMA= Schema(query=Query)
+ROOT_SCHEMA= Schema(query=Query, mutation=Mutation)

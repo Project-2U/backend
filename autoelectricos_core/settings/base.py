@@ -50,6 +50,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+ALLOWED_HOSTS = [
+    'https://autoelectricos.herokuapp.com/'
+]
+
 ROOT_URLCONF = 'autoelectricos_core.urls'
 
 TEMPLATES = [

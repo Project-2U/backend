@@ -11,6 +11,7 @@ django-filter = "*"
 django-graphql-jwt = "*"
 gunicorn = "*"
 django-heroku = "*"
+whitenoise = "*"
 
 [dev-packages]
 

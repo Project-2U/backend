@@ -12,7 +12,7 @@ class Product (models.Model):
     prod_amount= models.IntegerField(_('cantidad'))
     prod_price= models.IntegerField(_('precio'))
     prod_description=models.CharField(_('descripción'), max_length=254, blank=True)
-    prod_image= models.ImageField(_('imagen'),upload_to='products/',null=True, blank=True)
+    prod_image= models.ImageField(_('imagen'),upload_to='media/products/',null=True, blank=True)
     prod_trademark=models.CharField(_('marca'), max_length=64,null=True, blank=True)
     prod_warranty= models.CharField(_('garantía'), max_length=20,null=True, blank=True)
     prod_tutorial_url=models.URLField(_('link del tutorial'), null=True, blank=True)

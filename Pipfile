@@ -9,6 +9,8 @@ graphene-django = "*"
 pillow = "*"
 django-filter = "*"
 django-graphql-jwt = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [dev-packages]
 

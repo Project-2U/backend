@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'orders',
     'products',
     'users',
-    'notifications'
+    'notifications',
+    'profiles'
 ]
 
 MIDDLEWARE = [
@@ -115,5 +116,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 GRAPHENE = {
-    "SCHEMA": "django_root.schema.schema"
+    "SCHEMA": "api_graphql.schema.ROOT_SCHEMA"
 }
+AUTH_USER_MODEL='profiles.UserProfile'

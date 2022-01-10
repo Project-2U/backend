@@ -51,7 +51,7 @@ MIDDLEWARE = [
 ]
 
 ALLOWED_HOSTS = [
-    'https://autoelectricos.herokuapp.com/'
+    'https://autoelectricos-store.herokuapp.com/'
 ]
 
 ROOT_URLCONF = 'autoelectricos_core.urls'

@@ -126,6 +126,6 @@ GRAPHENE = {
     "SCHEMA": "api_graphql.schema.ROOT_SCHEMA"
 }
 AUTH_USER_MODEL='profiles.UserProfile'
-
+STATIC_ROOT='/static/'
 
 django_heroku.settings(locals())

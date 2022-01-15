@@ -3,7 +3,7 @@ from graphene import relay
 
 from notifications.models import Notification
 
-class NotificationNode(DjangoObjectType):
+class NotificationType(DjangoObjectType):
 
     class Meta:
         model=Notification

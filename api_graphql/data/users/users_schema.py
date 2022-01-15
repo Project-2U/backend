@@ -1,13 +1,13 @@
 from graphene import  ObjectType, relay
 from graphene_django import DjangoConnectionField
 
-#from .mutations import UserMutation
+from .mutations import UserMutation
 
-from .types import UserNode
+from .types import UserType
 
 class Query(ObjectType):
-    users= DjangoConnectionField(UserNode)
-    user= relay.Node.Field(UserNode)
+    users= DjangoConnectionField(UserType)
+    user= relay.Node.Field(UserType)
 
-# class Mutation(ObjectType):
-#     user=UserMutation.Field()
+class Mutation(ObjectType):
+    user=UserMutation.Field()

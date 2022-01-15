@@ -4,12 +4,11 @@ from graphene_django.forms.mutation import DjangoModelFormMutation
 
 from .mutations import OrderProductMutation
 
-from .types import OrderProductNode
+from .types import OrderProductType
 
 class Query(ObjectType):
-    orders_products= DjangoConnectionField(OrderProductNode)
-    order_product = relay.Node.Field(OrderProductNode)
+    orders_products= DjangoConnectionField(OrderProductType)
+    order_product = relay.Node.Field(OrderProductType)
 
 class Mutation (ObjectType):
-
     order_product= OrderProductMutation.Field()

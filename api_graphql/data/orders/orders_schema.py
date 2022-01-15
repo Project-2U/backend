@@ -3,13 +3,13 @@ from graphene import relay
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.forms.mutation import DjangoModelFormMutation
 
-#from .mutations import OrderMutation
+from .mutations import OrderMutation
 
-from .types import OrderNode
+from .types import OrderType
 
 class Query(ObjectType):
-    orders= DjangoFilterConnectionField(OrderNode)
-    order= relay.Node.Field(OrderNode)
+    orders= DjangoFilterConnectionField(OrderType)
+    order= relay.Node.Field(OrderType)
 
-# class Mutation(ObjectType):
-#     order= OrderMutation.Field()
+class Mutation(ObjectType):
+    order= OrderMutation.Field()

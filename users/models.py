@@ -1,9 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from autoelectricos_core.settings import AUTH_USER_MODEL
+from profiles.models import UserProfile
 
 # Create your models here.
-class User(models.Model):
+class UserModel(models.Model):
     user_name = models.CharField(_("nombre"), max_length=30)
     user_lastname = models.CharField(_('apellidos'),  max_length=30)
     user_birthday = models.DateTimeField(_('fecha de nacimiento'),null=True, blank=True)
@@ -12,8 +12,7 @@ class User(models.Model):
     user_occupation =models.CharField(_('ocupación'), max_length=64, null=True, blank=True)
     create_at= models.DateTimeField(_('fecha de creación'),auto_now_add=True)
     update_at= models.DateTimeField(_('fecha de actualización'),auto_now=True)
-    
-    user_profile=models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_('perfil de usuario'))
+    user_profile=models.OneToOneField(UserProfile, on_delete=models.CASCADE, verbose_name=_('perfil de usuario'))
 
     class Meta:
         verbose_name=_("usuario")

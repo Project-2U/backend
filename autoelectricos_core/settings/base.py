@@ -27,10 +27,10 @@ DEBUG=bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = [
     
-    'http://0.0.0.0',
+    '0.0.0.0',
     'localhost',
     'https://autoelectricos-store.herokuapp.com/',
-    'http://127.0.0.1',
+    '127.0.0.1',
 
 ]
 

@@ -1,1 +1,1 @@
-web: gunicorn autoelectricos_core.wsgi --log-file -
+web: gunicorn autoelectricos_core.wsgi

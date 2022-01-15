@@ -18,7 +18,7 @@ import os
 import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY= os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-5#yfmvus%tbifzd)eub-&%r9_-pld7-sfh%)8j$+%#$l7o=b5@'
 )

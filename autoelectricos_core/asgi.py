@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'autoelectricos_core.settings.development')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'autoelectricos_core.settings.production')
 
 application = get_asgi_application()

@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from autoelectricos_core.settings import base
+from autoelectricos_core.settings import AUTH_USER_MODEL
 
 # Create your models here.
 class User(models.Model):
@@ -13,7 +13,7 @@ class User(models.Model):
     create_at= models.DateTimeField(_('fecha de creación'),auto_now_add=True)
     update_at= models.DateTimeField(_('fecha de actualización'),auto_now=True)
     
-    user_profile=models.ForeignKey(base.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_('perfil de usuario'))
+    user_profile=models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_('perfil de usuario'))
 
     class Meta:
         verbose_name=_("usuario")

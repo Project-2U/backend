@@ -130,14 +130,5 @@ dmypy.json
 .vscode/
 
 
-# Development settings
-autoelectricos_core/settings/development.py
-
 # staticfiles
 staticfiles/
-
-# wsgi, asgi and manage
-
-autoelectricos_core/asgi.py
-autoelectricos_core/wsgi.py
-manage.py

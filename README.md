@@ -12,13 +12,13 @@ Backend para la aplicacion de **Autoelectricos del Cauca**
 
 ### API Grapql
 
-localhost:8000/graphql
+http://localhost:8000/api/graphql
 
 https://autoelectricos-store.herokuapp.com/api/graphql  
 
 
 ### Administrador de Django
 
-localhost:8000/admin
+http://localhost:8000/admin
 
 https://autoelectricos-store.herokuapp.com/admin

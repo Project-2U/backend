@@ -4,9 +4,12 @@ from django import forms
 
 from .models import UserProfile
 
+class UserProfileModelForm(forms.ModelForm):
+    class Meta:
+        model= UserProfile
+        exclude=['password']
+
 class UserCreationForm(UserCreationForm):
-
-
     class Meta:
         model=UserProfile
         fields=['user_email',]

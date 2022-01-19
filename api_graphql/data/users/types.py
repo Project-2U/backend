@@ -1,14 +1,15 @@
 from graphene_django import DjangoObjectType
 from graphene import relay
 
-from users.models import UserModel
+from users.models import User
+
 
 class UserType(DjangoObjectType):
     class Meta:
-        model= UserModel
-        filter_fields={
-            'user_name':['exact', 'contains', 'istartswith'],
-            'id':['exact'],
-            'user_lastname':['exact','contains', 'istartswith']
+        model = User
+        filter_fields = {
+            'user_name': ['exact', 'contains', 'istartswith'],
+            'id': ['exact'],
+            'user_lastname': ['exact', 'contains', 'istartswith']
         }
-        interfaces=[relay.Node]
+        interfaces = [relay.Node]

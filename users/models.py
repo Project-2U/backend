@@ -5,12 +5,12 @@ from profiles.models import UserProfile
 
 # Create your models here.
 class User(models.Model):
-    user_name = models.CharField(_("nombre"), max_length=30)
-    user_lastname = models.CharField(_('apellidos'), max_length=30)
-    user_birthday = models.DateTimeField(_('fecha de nacimiento'), null=True, blank=True)
-    user_phone = models.CharField(_('teléfono/celular'), max_length=10, null=True, blank=True)
-    user_address = models.CharField(_('dirección'), max_length=64, null=True, blank=True)
-    user_occupation = models.CharField(_('ocupación'), max_length=64, null=True, blank=True)
+    name = models.CharField(_("nombre"), db_column="user_name", max_length=30)
+    lastname = models.CharField(_('apellidos'), db_column="user_lastname", max_length=30)
+    age = models.IntegerField(_('Edad'), db_column="user_age",null=True, blank=True)
+    phone = models.CharField(_('teléfono/celular'), db_column="user_phone", max_length=10, null=True, blank=True)
+    address = models.CharField(_('dirección'), db_column="user_address", max_length=64, null=True, blank=True)
+    occupation = models.CharField(_('ocupación'), db_column="user_occupation", max_length=64, null=True, blank=True)
     create_at = models.DateTimeField(_('fecha de creación'), auto_now_add=True)
     update_at = models.DateTimeField(_('fecha de actualización'), auto_now=True)
     user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE, verbose_name=_('perfil de usuario'))
@@ -20,4 +20,4 @@ class User(models.Model):
         verbose_name_plural = _('usuarios')
 
     def __str__(self):
-        return self.user_name + " " + self.user_lastname
+        return self.name + " " + self.lastname

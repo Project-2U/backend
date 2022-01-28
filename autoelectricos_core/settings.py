@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     "graphene_django",
     'corsheaders',
     'api_graphql',
+    'categories',
     'orders',
     'products',
     'users',

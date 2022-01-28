@@ -1,14 +1,22 @@
 from django.contrib import admin
-from .models import Product, OrderProduct
+from django.contrib.admin import site
+
+from .forms import ProductModelForm
+from .models import Product
+from orders.models import  OrderProduct
+
 
 # Register your models here.
 
-@admin.register(Product)
+
 class ProductAdmin(admin.ModelAdmin):
-    list_filter=['prod_name', 'is_active']
-    list_display=['prod_name','prod_amount', 'prod_price', 'prod_discount', 'is_active']
-    list_editable=['prod_amount', 'prod_discount', 'prod_price', 'is_active']
+    form=ProductModelForm
+    list_filter = ['name', 'is_active']
+    list_display = ['name', 'amount', 'price', 'discount', 'is_active']
+    list_editable = ['amount', 'discount', 'price', 'is_active']
+
+site.register(Product,ProductAdmin)
 
 @admin.register(OrderProduct)
 class OrderProductAdmin(admin.ModelAdmin):
-    list_display=['prod_id', 'order_id', 'quantity']
+    list_display = ['prod_id', 'order_id', 'quantity']

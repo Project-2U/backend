@@ -7,35 +7,35 @@ from django.contrib.auth.models import Group
 # Register your models here.
 
 
-
 admin.site.unregister(Group)
-admin.site.site_header="Sitio de Administración para Autoelectricos del Cauca"
+admin.site.site_header = "Sitio de Administración para Autoelectricos del Cauca"
+
 
 @admin.register(UserProfile)
 class UserProfileAdmin(UserAdmin):
-    add_form=UserCreationForm
-    form=UserChangeForm
-    model=UserProfile
-    exclude = ("username",)
+    add_form = UserCreationForm
+    form = UserChangeForm
+    model = UserProfile
+    exclude = ("name",)
     list_display = (
-        "user_email",
+        "email",
         "is_active",
-        "user_type",
+        "type",
         "last_login"
     )
     list_filter = (
-        "user_email",
+        "email",
         "is_active",
-        'user_type'
+        'type'
     )
     fieldsets = (
         (
             None,
             {
                 "fields": (
-                    "user_email",
+                    "email",
                     "password",
-                    "user_type",
+                    "type",
                 )
             },
         ),
@@ -55,17 +55,15 @@ class UserProfileAdmin(UserAdmin):
             {
                 "classes": ("wide",),
                 "fields": (
-                    "user_email",
+                    "email",
                     "password1",
                     "password2",
-                    "user_type",
+                    "type",
                     "is_active"
                 ),
             },
         ),
     )
-    search_fields = ("user_email",)
-    ordering = ("user_email",)
-    list_editable=['is_active', 'user_type']
-
-
+    search_fields = ("email",)
+    ordering = ("email",)
+    list_editable = ['is_active', 'type']

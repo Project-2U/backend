@@ -6,9 +6,11 @@ from .mutations import OrderProductMutation
 
 from .types import OrderProductType
 
+
 class Query(ObjectType):
-    orders_products= DjangoConnectionField(OrderProductType)
+    orders_products = DjangoConnectionField(OrderProductType)
     order_product = relay.Node.Field(OrderProductType)
 
-class Mutation (ObjectType):
-    order_product= OrderProductMutation.Field()
+
+class Mutation(ObjectType):
+    mutate_order_product = OrderProductMutation.Field()

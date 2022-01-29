@@ -7,11 +7,11 @@ from .types import NotificationType
 
 from .mutations import NotificationMutation
 
+
 class Query(ObjectType):
-    
-    notifications= DjangoFilterConnectionField(NotificationType)
-    notidication= relay.Node.Field(NotificationType)
+    notifications = DjangoFilterConnectionField(NotificationType)
+    notification = relay.Node.Field(NotificationType)
+
 
 class Mutation(ObjectType):
-
-    notification= NotificationMutation.Field()
+    mutate_notification = NotificationMutation.Field()

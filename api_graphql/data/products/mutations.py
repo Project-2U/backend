@@ -5,14 +5,15 @@ from graphene import Field
 from .types import ProductType, OrderProductType
 
 
-
 class ProductMutation(DjangoModelFormMutation):
-    product= Field(ProductType)
+    product = Field(ProductType)
+
     class Meta:
-        form_class= ProductModelForm
+        form_class = ProductModelForm
+
 
 class OrderProductMutation(DjangoModelFormMutation):
+    order_product = Field(OrderProductType)
 
-    order_product= Field(OrderProductType)
     class Meta:
-        form_class= OrderProductModelForm
+        form_class = OrderProductModelForm

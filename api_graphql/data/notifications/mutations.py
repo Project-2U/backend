@@ -3,8 +3,9 @@ from graphene import Field
 from notifications.forms import NotificationModelForm
 from .types import NotificationType
 
+
 class NotificationMutation(DjangoModelFormMutation):
-    notification= Field(NotificationType)
+    notification = Field(NotificationType)
+
     class Meta:
-        form_class= NotificationModelForm
-        
+        form_class = NotificationModelForm

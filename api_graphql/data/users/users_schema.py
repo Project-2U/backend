@@ -12,4 +12,4 @@ class Query(ObjectType):
 
 
 class Mutation(ObjectType):
-    user = UserMutation.Field()
+    mutate_user = UserMutation.Field()

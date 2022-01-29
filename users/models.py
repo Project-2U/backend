@@ -7,7 +7,7 @@ from profiles.models import UserProfile
 class User(models.Model):
     name = models.CharField(_("nombre"), db_column="user_name", max_length=30)
     lastname = models.CharField(_('apellidos'), db_column="user_lastname", max_length=30)
-    age = models.IntegerField(_('Edad'), db_column="user_age",null=True, blank=True)
+    age = models.PositiveSmallIntegerField(_('Edad'), db_column="user_age",null=True, blank=True)
     phone = models.CharField(_('teléfono/celular'), db_column="user_phone", max_length=10, null=True, blank=True)
     address = models.CharField(_('dirección'), db_column="user_address", max_length=64, null=True, blank=True)
     occupation = models.CharField(_('ocupación'), db_column="user_occupation", max_length=64, null=True, blank=True)
@@ -18,6 +18,7 @@ class User(models.Model):
     class Meta:
         verbose_name = _("usuario")
         verbose_name_plural = _('usuarios')
+        ordering = ["-create_at"]
 
     def __str__(self):
         return self.name + " " + self.lastname

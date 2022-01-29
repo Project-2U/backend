@@ -43,3 +43,5 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = _('perfil de usuario')
         verbose_name_plural = _('perfiles de usuario')
+        ordering = ["-email"]
+

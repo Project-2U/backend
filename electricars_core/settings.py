@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 """
 
-
 from pathlib import Path
 import os
 import django_heroku
@@ -20,13 +19,13 @@ import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY= os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-5#yfmvus%tbifzd)eub-&%r9_-pld7-sfh%)8j$+%#$l7o=b5@'
-)
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-5#yfmvus%tbifzd)eub-&%r9_-pld7-sfh%)8j$+%#$l7o=b5@'
+                            )
 
-DEBUG=bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = [
-    
+
     '0.0.0.0',
     'localhost',
     'https://autoelectricos-store.herokuapp.com/',
@@ -34,23 +33,21 @@ ALLOWED_HOSTS = [
 
 ]
 
-
 import dj_database_url
 import os
 
-DATABASE_LOCAL= {
+DATABASE_LOCAL = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
-DATABASE_PRODUCTION={
+DATABASE_PRODUCTION = {
     'default': dj_database_url.config(
         default=os.getenv('DATABASE_URL')
     )
 }
-
 
 DATABASES = os.environ.get('DATABASE_PRODUCTION', DATABASE_LOCAL)
 
@@ -87,11 +84,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-     'corsheaders.middleware.CorsMiddleware',
-     ]
+    'corsheaders.middleware.CorsMiddleware',
+]
 
-
-ROOT_URLCONF = 'autoelectricos_core.urls'
+ROOT_URLCONF = 'electricars_core.urls'
 
 TEMPLATES = [
     {
@@ -104,16 +100,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'autoelectricos_core.wsgi.application'
-
-
-
+WSGI_APPLICATION = 'electricars_core.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -158,14 +151,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URL= '/media/'
-MEDIA_ROOT= os.path.join(BASE_DIR,'/media/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -175,7 +167,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 GRAPHENE = {
     "SCHEMA": "api_graphql.schema.ROOT_SCHEMA"
 }
-AUTH_USER_MODEL='profiles.UserProfile'
+AUTH_USER_MODEL = 'profiles.UserProfile'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

@@ -1,1 +1,1 @@
-web: gunicorn autoelectricos_core.wsgi
+web: gunicorn electricars_core.wsgi

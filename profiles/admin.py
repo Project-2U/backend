@@ -8,7 +8,7 @@ from django.contrib.auth.models import Group
 
 
 admin.site.unregister(Group)
-admin.site.site_header = "Sitio de Administración para Autoelectricos del Cauca"
+admin.site.site_header = "Electricar's: Administracion"
 
 
 @admin.register(UserProfile)

@@ -18,6 +18,7 @@ class Notification(models.Model):
     class Meta:
         verbose_name = _('notificacion')
         verbose_name_plural = _('notificaciones')
+        ordering = ["-date"]
 
     def __str__(self):
-        return self.not_title + ' \n ' + self.not_body
+        return self.title + ' \n ' + self.body

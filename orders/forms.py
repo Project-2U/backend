@@ -7,3 +7,4 @@ class OrderModelForm(ModelForm):
     class Meta:
         model = Order
         fields = '__all__'
+        exclude=["date"]

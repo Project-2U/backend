@@ -17,19 +17,21 @@ class Order(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('usuario'))
     state = models.CharField(_('estado'), choices=State.choices, max_length=15, db_column="ord_state")
-    total = models.IntegerField(_('total'), db_column="ord_total")
+    total = models.PositiveSmallIntegerField(_('total'), db_column="ord_total")
     products = models.ManyToManyField(Product, through="OrderProduct")
+    date = models.DateTimeField(_("fecha"), db_column="ord_date", auto_now_add=True)
 
     class Meta:
         verbose_name = _('pedido')
         verbose_name_plural = _('pedidos')
+        ordering = ["-date"]
 
     def __str__(self):
         return f"{self.id}"
 
 
 class OrderProduct(models.Model):
-    quantity = models.IntegerField(_('cantidad'))
+    quantity = models.PositiveSmallIntegerField(_('cantidad'))
     prod_id = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name=_('producto'))
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name=_('pedido'))
 

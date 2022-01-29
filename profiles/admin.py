@@ -3,11 +3,13 @@ from django.contrib.auth.admin import UserAdmin
 from .models import UserProfile
 from .forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.models import Group
+from admin_interface.models import Theme
 
 # Register your models here.
 
 
 admin.site.unregister(Group)
+admin.site.unregister(Theme)
 admin.site.site_header = "Electricar's: Administracion"
 
 

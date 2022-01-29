@@ -28,7 +28,7 @@ ALLOWED_HOSTS = [
 
     '0.0.0.0',
     'localhost',
-    'https://autoelectricos-store.herokuapp.com/',
+    'https://electricars.herokuapp.com/',
     '127.0.0.1',
 
 ]

@@ -10,8 +10,6 @@ from admin_interface.models import Theme
 
 admin.site.unregister(Group)
 admin.site.unregister(Theme)
-admin.site.site_header = "Electricar's: Administracion"
-
 
 @admin.register(UserProfile)
 class UserProfileAdmin(UserAdmin):

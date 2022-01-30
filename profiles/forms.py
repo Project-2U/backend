@@ -14,10 +14,10 @@ class UserProfileModelForm(forms.ModelForm):
 class UserCreationForm(UserCreationForm):
     class Meta:
         model = UserProfile
-        fields = ['email', ]
+        fields = ['email', 'password']
 
 
 class UserChangeForm(UserChangeForm):
     class Meta:
         model = UserProfile
-        fields = ['email']
+        fields = ['email', 'password']

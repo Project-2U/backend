@@ -1,4 +1,4 @@
-from graphene import ObjectType, relay
+from graphene import ObjectType, relay, AbstractType
 from graphene_django import DjangoConnectionField
 
 from .mutations import UserMutation

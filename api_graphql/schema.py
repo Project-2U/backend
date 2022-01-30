@@ -14,7 +14,7 @@ class Query(ProfileQuery, UserQuery, OrderQuery, NotificationQuery, OrderProduct
     pass
 
 
-class Mutation(ProfileMutation, UserMutation, OrderMutation, ProductMutation, OrderProductMutation, CategoryMutation,
+class Mutation(ProfileMutation,UserMutation, OrderMutation, ProductMutation, OrderProductMutation, CategoryMutation,
                NotificationMutation):
     pass
 

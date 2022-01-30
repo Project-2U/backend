@@ -11,6 +11,7 @@ from admin_interface.models import Theme
 admin.site.unregister(Group)
 admin.site.unregister(Theme)
 
+
 @admin.register(UserProfile)
 class UserProfileAdmin(UserAdmin):
     add_form = UserCreationForm

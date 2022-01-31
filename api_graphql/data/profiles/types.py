@@ -7,7 +7,9 @@ from profiles.models import UserProfile
 class ProfileType(DjangoObjectType):
     class Meta:
         model = UserProfile
-        filter_fields = {'email': ['exact', 'contains', 'isstartswith'],
-                         'type': ['exact'],
-                         'is_active': ['exact']}
+        filter_fields = {
+            'email': ['exact', 'icontains', 'istartswith'],
+            'password':['exact'],
+            'type': ['exact'],
+            'is_active': ['exact']}
         interfaces = [relay.Node]

@@ -1,5 +1,5 @@
 from graphene import ObjectType, relay
-from graphene_django import DjangoConnectionField
+from graphene_django.filter import DjangoFilterConnectionField
 
 from .mutations import ProfileMutation
 
@@ -7,7 +7,7 @@ from .types import ProfileType
 
 
 class Query(ObjectType):
-    profiles = DjangoConnectionField(ProfileType)
+    profiles = DjangoFilterConnectionField(ProfileType)
     profile = relay.Node.Field(ProfileType)
 
 

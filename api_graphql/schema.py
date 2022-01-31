@@ -6,6 +6,7 @@ from .data.products.products_schema import Query as ProductQuery, Mutation as Pr
 from .data.products.order_product_schema import Query as OrderProductQuery, Mutation as OrderProductMutation
 from .data.notifications.notifications_schema import Query as NotificationQuery, Mutation as NotificationMutation
 from .data.users.users_schema import Query as UserQuery, Mutation as UserMutation
+from .data.users.auth_schema import Mutation as AuthMutation
 from .data.profiles.profiles_schema import Query as ProfileQuery, Mutation as ProfileMutation
 from .data.categories.categories_schema import Query as CategoryQuery, Mutation as CategoryMutation
 
@@ -14,7 +15,7 @@ class Query(ProfileQuery, UserQuery, OrderQuery, NotificationQuery, OrderProduct
     pass
 
 
-class Mutation(ProfileMutation,UserMutation, OrderMutation, ProductMutation, OrderProductMutation, CategoryMutation,
+class Mutation(AuthMutation,ProfileMutation,UserMutation, OrderMutation, ProductMutation, OrderProductMutation, CategoryMutation,
                NotificationMutation):
     pass
 

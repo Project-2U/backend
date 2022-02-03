@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+from .forms import NotificationModelForm
 from .models import Notification
 
 
@@ -6,5 +8,7 @@ from .models import Notification
 
 @admin.register(Notification)
 class NotificationAdmin(admin.ModelAdmin):
+    form = NotificationModelForm
     list_display = ["title", "body", "date", "user", "order"]
     list_filter = ["date", "user", "order"]
+    readonly_fields = ['date']

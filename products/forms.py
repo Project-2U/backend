@@ -2,7 +2,6 @@ from django import forms
 
 from categories.models import Category
 from .models import Product
-from orders.models import OrderProduct
 
 
 class ProductModelForm(forms.ModelForm):
@@ -31,8 +30,3 @@ class ProductModelForm(forms.ModelForm):
             instance.topping_set.add(*self.cleaned_data['categorias'])
             return instance
 
-
-class OrderProductModelForm(forms.ModelForm):
-    class Meta:
-        model = OrderProduct
-        fields = '__all__'

@@ -1,6 +1,7 @@
 import graphene
 from graphene_django.forms.mutation import DjangoModelFormMutation
 from users.models import User
+from users.forms import UserModelForm
 from profiles.models import UserProfile
 from .types import UserType
 from api_graphql.data.profiles.types import ProfileType
@@ -22,7 +23,7 @@ class UserMutation(Mutation):
     class Arguments:
         input = UserInput(required=True)
 
-    user = Field(UserType)
+    user=Field(UserType)
 
     @staticmethod
     def mutate(root, info, input: UserInput):
@@ -36,6 +37,6 @@ class UserMutation(Mutation):
         email = input.get("email")
         password = input.get('password')
         profile = UserProfile.objects.create_user(email=email, password=password)
-        obj = User.objects.create(name=name, lastname=lastname, age=age, phone=phone, address=address,
-                                  occupation=occupation, user_profile_id=profile.id)
+        obj = User.objects.create(lastname=lastname, age=age, phone=phone, address=address,
+                                 occupation=occupation, user_profile_id=profile.id)
         return UserMutation(user=obj)

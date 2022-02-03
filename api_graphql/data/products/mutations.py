@@ -1,6 +1,7 @@
 from graphene_django.forms.mutation import DjangoModelFormMutation
 
-from products.forms import ProductModelForm, OrderProductModelForm
+from orders.forms import OrderProductModelForm
+from products.forms import ProductModelForm
 from graphene import Field
 from .types import ProductType, OrderProductType
 

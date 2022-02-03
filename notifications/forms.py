@@ -1,9 +1,10 @@
-from django.forms import ModelForm
+from django import forms
 
 from .models import Notification
 
-class NotificationModelForm(ModelForm):
 
+class NotificationModelForm(forms.ModelForm):
     class Meta:
-        model= Notification
-        fields='__all__'
+        model = Notification
+        fields = '__all__'
+

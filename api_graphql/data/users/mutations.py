@@ -37,7 +37,7 @@ class UserMutation(Mutation):
         email = input.get("email")
         password = input.get('password')
         profile = UserProfile.objects.create_user(email=email, password=password)
-        obj = User.objects.create(lastname=lastname, age=age, phone=phone, address=address,
+        obj = User.objects.create(name=name,lastname=lastname, age=age, phone=phone, address=address,
                                  occupation=occupation, user_profile_id=profile.id)
         return UserMutation(user=obj)
 

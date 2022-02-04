@@ -13,8 +13,6 @@ class UserModelForm(forms.ModelForm):
     address = forms.CharField(min_length=8, max_length=64, required=False)
     occupation = forms.CharField(min_length=3, max_length=64, required=False)
 
-
-
     class Meta:
         model = User
         fields = '__all__'

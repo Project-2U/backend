@@ -13,7 +13,7 @@ class UserInput(graphene.InputObjectType):
     lastname = graphene.String(required=True)
     age = graphene.Int()
     phone = graphene.String()
-    address = graphene.String(required=True)
+    address = graphene.String()
     occupation = graphene.String()
     email = graphene.String(required=True)
     password = graphene.String(required=True)
@@ -40,3 +40,4 @@ class UserMutation(Mutation):
         obj = User.objects.create(lastname=lastname, age=age, phone=phone, address=address,
                                  occupation=occupation, user_profile_id=profile.id)
         return UserMutation(user=obj)
+

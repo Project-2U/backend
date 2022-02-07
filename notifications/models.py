@@ -8,8 +8,8 @@ from orders.models import Order
 # Create your models here.
 
 class Notification(models.Model):
-    date = models.DateTimeField(auto_now_add=True, null=True, blank=True, db_column="noti_date")
-    title = models.CharField(_('titulo'), max_length=25, null=True, blank=True, db_column="noti_title")
+    date = models.DateTimeField(auto_now_add=True, db_column="noti_date")
+    title = models.CharField(_('titulo'), max_length=25, db_column="noti_title", default="Notification")
     body = models.CharField(_('texto'), max_length=254, null=True, blank=True, db_column="noti_body")
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('usuario'))

@@ -5,11 +5,14 @@ from .models import Product
 
 
 class ProductModelForm(forms.ModelForm):
+    name = forms.CharField(label="Nombre del producto",max_length=254, min_length=5)
+    description = forms.CharField(label='Descripción', min_length=5, max_length=254, widget=forms.Textarea, required=False)
+    discount = forms.IntegerField(min_value=0, max_value=100, label="Porcentaje de descuento")
     class Meta:
         model = Product
         fields = '__all__'
 
-    categories = forms.ModelMultipleChoiceField(queryset=Category.objects.all())
+    categories = forms.ModelMultipleChoiceField(label="Categorias",queryset=Category.objects.all())
 
     def __init__(self, *args, **kwargs):
         # Only in case we build the form from an instance
@@ -20,7 +23,7 @@ class ProductModelForm(forms.ModelForm):
             initial = kwargs.setdefault('initial', {})
             # The widget for a ModelMultipleChoiceField expects
             # a list of primary key for the selected data.
-            initial['categories'] = [c.pk for c in kwargs['instance'].categorias.all()]
+            initial['categorias'] = [c.pk for c in kwargs['instance'].categorias.all()]
 
         forms.ModelForm.__init__(self, *args, **kwargs)
 

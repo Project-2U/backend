@@ -18,6 +18,12 @@ class UserInput(graphene.InputObjectType):
     email = graphene.String(required=True)
     password = graphene.String(required=True)
 
+class EditUserMutation(DjangoModelFormMutation):
+    user =Field(UserType)
+
+    class Meta:
+        form_class = UserModelForm
+
 
 class UserMutation(Mutation):
     class Arguments:

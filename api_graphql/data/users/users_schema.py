@@ -1,6 +1,6 @@
 from graphene import ObjectType, relay, AbstractType
 from graphene_django.filter import DjangoFilterConnectionField
-from .mutations import UserMutation
+from .mutations import UserMutation, EditUserMutation
 
 from .types import UserType
 
@@ -12,3 +12,4 @@ class Query(ObjectType):
 
 class Mutation(ObjectType):
     mutate_user = UserMutation.Field()
+    edit_user =  EditUserMutation.Field()

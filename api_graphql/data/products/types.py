@@ -9,7 +9,10 @@ class ProductType(DjangoObjectType):
         model = ProductModel
         filter_fields = {
             'name': ['exact', 'contains', 'istartswith'],
-            'is_active': ['exact']
+            'is_active': ['exact'],
+            'categorias': ['exact'],
+            'price':['exact','contains' ],
+            'discount': ['exact']
         }
         interfaces = [relay.Node]
 

@@ -5,14 +5,16 @@ from .models import Product
 
 
 class ProductModelForm(forms.ModelForm):
-    name = forms.CharField(label="Nombre del producto",max_length=254, min_length=5)
-    description = forms.CharField(label='Descripción', min_length=5, max_length=254, widget=forms.Textarea, required=False)
-    discount = forms.IntegerField(min_value=0, max_value=100, label="Porcentaje de descuento")
+    name = forms.CharField(label="Nombre del producto", max_length=254, min_length=5)
+    description = forms.CharField(label='Descripción', min_length=5, max_length=254, widget=forms.Textarea,
+                                  required=False)
+    discount = forms.IntegerField(min_value=0, max_value=100, label="Porcentaje de descuento", required=False)
+
     class Meta:
         model = Product
         fields = '__all__'
 
-    categories = forms.ModelMultipleChoiceField(label="Categorias",queryset=Category.objects.all())
+    categories = forms.ModelMultipleChoiceField(label="Categorias", queryset=Category.objects.all(), required=False)
 
     def __init__(self, *args, **kwargs):
         # Only in case we build the form from an instance
@@ -32,4 +34,3 @@ class ProductModelForm(forms.ModelForm):
             instance.topping_set.clear()
             instance.topping_set.add(*self.cleaned_data['categorias'])
             return instance
-

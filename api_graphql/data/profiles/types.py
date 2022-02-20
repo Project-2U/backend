@@ -12,4 +12,5 @@ class ProfileType(DjangoObjectType):
             'password':['exact'],
             'type': ['exact'],
             'is_active': ['exact']}
+        exclude = ['is_admin','is_staff', 'is_superuser']
         interfaces = [relay.Node]

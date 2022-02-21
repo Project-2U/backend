@@ -17,7 +17,7 @@ class Product(models.Model):
     tutorial_url = models.URLField(_('link del tutorial'), null=True, blank=True, db_column="prod_tutorial")
     discount = models.PositiveSmallIntegerField(_('descuento'), null=True, blank=True, default=0,
                              db_column="prod_discount")
-    reference = models.CharField(_('referencia'), max_length=64, default="sin referencia", db_column="prod_reference")
+    reference = models.CharField(_('referencia'), max_length=64, default="sin referencia", db_column="prod_reference", blank=True)
     create_at = models.DateTimeField(_('fecha de creación'), auto_now_add=True)
     update_at = models.DateTimeField(_('fecha de modificación'), auto_now=True)
     is_active = models.BooleanField(_('activo'), default=True)

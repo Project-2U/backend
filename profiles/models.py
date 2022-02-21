@@ -32,7 +32,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
                             blank=True,
                             default='CLIENT')
     email = models.EmailField(_('correo'), unique=True, db_column="user_email")
-    is_active = models.BooleanField(_('activo/inactivo'), default=True)
+    is_active = models.BooleanField(_('activo/inactivo'), default=True, blank=True)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(_('administrador'), default=False)
 

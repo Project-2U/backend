@@ -8,8 +8,7 @@ from .models import UserProfile
 class UserProfileModelForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        exclude = ['password']
-
+        fields='__all__'
 
 class UserCreationForm(UserCreationForm):
     class Meta:

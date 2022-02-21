@@ -14,8 +14,8 @@ class ProductModelForm(forms.ModelForm):
         model = Product
         fields = '__all__'
 
-    categories = forms.ModelMultipleChoiceField(label="Categorias", queryset=Category.objects.all(), required=False)
 
+    '''
     def __init__(self, *args, **kwargs):
         # Only in case we build the form from an instance
         # (otherwise, 'toppings' list should be empty)
@@ -34,3 +34,4 @@ class ProductModelForm(forms.ModelForm):
             instance.topping_set.clear()
             instance.topping_set.add(*self.cleaned_data['categories'])
             return instance
+    '''

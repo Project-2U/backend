@@ -8,7 +8,7 @@ class CategoryType(DjangoObjectType):
     class Meta:
         model = Category
         filter_fields = {'name': ['exact'],
-                         'create_at':['exact'],
-                        'update_at': ['exact'],
+                         'create_at': ['exact'],
+                         'update_at': ['exact'],
                          'products': ['exact']}
         interfaces = [relay.Node]

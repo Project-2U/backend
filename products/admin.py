@@ -12,7 +12,7 @@ from orders.models import OrderProduct
 class ProductAdmin(admin.ModelAdmin):
     form = ProductModelForm
     list_filter = ['name', 'is_active']
-    list_display = ['name', 'amount', 'price', 'discount', 'reference','categories','is_active']
+    list_display = ['name', 'amount', 'price', 'discount', 'reference','is_active']
     list_editable = ['amount', 'discount', 'price', 'is_active']
 
 

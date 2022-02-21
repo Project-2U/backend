@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 # Create your models here.
+from categories.models import Category
 
 
 class Product(models.Model):
@@ -20,6 +21,7 @@ class Product(models.Model):
     create_at = models.DateTimeField(_('fecha de creación'), auto_now_add=True)
     update_at = models.DateTimeField(_('fecha de modificación'), auto_now=True)
     is_active = models.BooleanField(_('activo'), default=True)
+    categories = models.ManyToManyField(Category, verbose_name=_("categorias"), related_name="products", blank=True)
 
     class Meta:
         verbose_name = _('productos')

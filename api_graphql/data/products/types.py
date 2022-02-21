@@ -10,7 +10,7 @@ class ProductType(DjangoObjectType):
         filter_fields = {
             'name': ['exact', 'contains', 'istartswith'],
             'is_active': ['exact'],
-            'categorias': ['exact'],
+            'categories': ['exact'],
             'price':['exact','contains' ],
             'discount': ['exact']
         }

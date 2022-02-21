@@ -25,12 +25,12 @@ class ProductModelForm(forms.ModelForm):
             initial = kwargs.setdefault('initial', {})
             # The widget for a ModelMultipleChoiceField expects
             # a list of primary key for the selected data.
-            initial['categorias'] = [c.pk for c in kwargs['instance'].categorias.all()]
+            initial['categories'] = [c.pk for c in kwargs['instance'].categories.all()]
 
         forms.ModelForm.__init__(self, *args, **kwargs)
 
         def save(self):
             instance = forms.ModelForm.save(self)
             instance.topping_set.clear()
-            instance.topping_set.add(*self.cleaned_data['categorias'])
+            instance.topping_set.add(*self.cleaned_data['categories'])
             return instance

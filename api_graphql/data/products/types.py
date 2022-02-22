@@ -1,4 +1,4 @@
-from graphene_django import DjangoObjectType
+from graphene_django.types import DjangoObjectType
 from graphene import relay
 from products.models import Product as ProductModel
 from orders.models import OrderProduct as OrderProductModel

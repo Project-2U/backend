@@ -16,6 +16,7 @@ dj-database-url = "*"
 psycopg2 = "==2.9.3"
 django-cors-headers = "*"
 django-admin-interface = "*"
+graphene-file-upload = "*"
 
 [dev-packages]
 

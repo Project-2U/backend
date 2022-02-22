@@ -7,7 +7,7 @@ from .models import UserProfile
 
 class UserProfileModelForm(forms.ModelForm):
 
-    password2 = forms.PasswordInput(label="Confirmar contraseña", required=False)
+    #password2 = forms.PasswordInput(label="Confirmar contraseña", required=False)
 
     class Meta:
         model = UserProfile

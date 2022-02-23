@@ -4,6 +4,8 @@ from graphene_django.forms.mutation import DjangoModelFormMutation
 from orders.forms import OrderProductModelForm
 from products.forms import ProductModelForm
 from graphene import Field
+
+from products.models import Product
 from .types import ProductType, OrderProductType
 from graphene_file_upload.scalars import Upload
 
@@ -31,19 +33,24 @@ class ProductMutation(graphene.Mutation):
        input= ProductInput(required=True)
 
     success = graphene.Boolean()
+    errors = graphene.List(graphene.String)
     @classmethod
-    def mutate(cls,root, info, image=None, **data):
+    def mutate(cls,root, info, **data_input):
 
+        data = data_input.get('input')
         file_data = dict()
-        if image:
-            file_data = {"image": image}
-
-        f = ProductMutation.form(data.get('input'), file_data)
-        if f.is_valid():
-            f.save()
+        if data.get('image'):
+            file_data = {"image": data.get('image')}
+        if data.get('id'):
+            product = Product.objects.get(pk=data.get('id'))
+            form = ProductMutation.form(data, instance=product)
+        else:
+            form = ProductMutation.form(data_input.get('input'), file_data)
+        if form.is_valid():
+            form.save()
             return ProductMutation(success=True)
         else:
-            return ProductMutation(success=False)
+            return ProductMutation(success=False, errors = form.errors)
 
 
 

@@ -138,6 +138,7 @@ CORS_ORIGIN_WHITELIST = [
     'https://localhost:8081',
     'http://127.0.0.1:8081',
     'https://127.0.0.1:8081',
+    'https://electricars-store.herokuapp.com/'
 ]
 
 CORS_ALLOW_CREDENTIALS = True

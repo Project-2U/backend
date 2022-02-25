@@ -1,7 +1,7 @@
 from django import forms
 
 from categories.models import Category
-from .models import Product
+from .models import Product, ProductImage
 
 
 class ProductModelForm(forms.ModelForm):
@@ -14,6 +14,14 @@ class ProductModelForm(forms.ModelForm):
         model = Product
         fields = '__all__'
 
+    def clean_name(self):
+        return self.cleaned_data['name'].title()
+
+    def clean_description(self):
+        return self.cleaned_data['description'].capitalize()
+
+    def clean_trademark(self):
+        return self.cleaned_data['trademark'].title()
 
     '''
     def __init__(self, *args, **kwargs):
@@ -35,3 +43,16 @@ class ProductModelForm(forms.ModelForm):
             instance.topping_set.add(*self.cleaned_data['categories'])
             return instance
     '''
+
+
+class ProductImageModelForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(ProductImageModelForm, self).__init__(*args, **kwargs)
+        self.fields['path_image'].widget.attrs['multiple'] = True
+
+
+
+
+    class Meta:
+        model = ProductImage
+        fields='__all__'

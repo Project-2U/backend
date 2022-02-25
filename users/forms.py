@@ -17,3 +17,12 @@ class UserModelForm(forms.ModelForm):
         model = User
         fields = '__all__'
         exclude = ['create_at', 'update_at']
+
+    def clean_name(self):
+        return self.cleaned_data['name'].title()
+
+    def clean_lastname(self):
+        return self.cleaned_data['lastname'].title()
+
+    def clean_occupation(self):
+        return self.cleaned_data['occupation'].capitalize()

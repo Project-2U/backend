@@ -10,3 +10,9 @@ class NotificationModelForm(forms.ModelForm):
     class Meta:
         model = Notification
         fields = '__all__'
+
+    def clean_title(self):
+        return self.cleaned_data['title'].title()
+
+    def clean_body(self):
+        return self.cleaned_data['body'].capitalize()

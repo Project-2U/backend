@@ -54,4 +54,4 @@ class ProductMutation(DjangoModelFormMutation):
     product = Field(ProductType)
 
     class Meta:
-        form_class = ProductImageModelForm
+        form_class = ProductModelForm

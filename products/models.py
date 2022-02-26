@@ -42,3 +42,6 @@ class ProductImage(models.Model):
         verbose_name = _('imagenes de producto')
         verbose_name_plural = _('imagenes de productos')
         ordering = ['product']
+
+    def __str__(self):
+        return self.path_image

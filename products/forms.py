@@ -50,9 +50,6 @@ class ProductImageModelForm(forms.ModelForm):
         super(ProductImageModelForm, self).__init__(*args, **kwargs)
         self.fields['path_image'].widget.attrs['multiple'] = True
 
-
-
-
     class Meta:
         model = ProductImage
-        fields='__all__'
+        fields = '__all__'

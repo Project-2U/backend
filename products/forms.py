@@ -9,6 +9,7 @@ class ProductModelForm(forms.ModelForm):
     description = forms.CharField(label='Descripción', min_length=5, max_length=254, widget=forms.Textarea,
                                   required=False)
     discount = forms.IntegerField(min_value=0, max_value=100, label="Porcentaje de descuento", required=False)
+    trademark = forms.CharField(label= 'Marca', required=False, min_length=1, max_length=64)
 
     class Meta:
         model = Product

@@ -11,14 +11,14 @@ from graphene_file_upload.scalars import Upload
 
 
 class ProductImageInput(graphene.InputObjectType):
-    image = Upload(required = True)
-    product = graphene.ID(required= True)
+    image = Upload(required=True)
+    product = graphene.ID(required=True)
     id = graphene.ID()
 
 
 class ProductImageMutation(graphene.Mutation):
     form = ProductImageModelForm
-    product_image = graphene.Field(ProductType)
+    product_image = graphene.Field(ProductImageType)
 
     class Arguments:
         input = ProductImageInput(required=True)
@@ -55,3 +55,43 @@ class ProductMutation(DjangoModelFormMutation):
 
     class Meta:
         form_class = ProductModelForm
+
+
+class DeleteProduct(graphene.Mutation):
+    product = Field(ProductType)
+    success = graphene.Boolean()
+    errors = graphene.JSONString()
+
+    class Input:
+        prod_id = graphene.ID(required=True)
+
+    def mutate(root, info, **args):
+        prod_id = args.get('prod_id')
+        try:
+            obj = ProductImage.objects.get(pk=prod_id)
+        except Exception:
+            return DeleteProduct(success=False, errors={"error": "No existe el elemento con el id proporcionado."})
+        if obj:
+            obj.delete()
+            return DeleteProduct(success=True)
+        return DeleteProduct(success=False, errors={"error": "Error al acceder a la base de datos"})
+
+
+class DeleteProductImage(graphene.Mutation):
+    product = Field(ProductImageType)
+    success = graphene.Boolean()
+    errors = graphene.JSONString()
+
+    class Input:
+        prod_image_id = graphene.ID(required=True)
+
+    def mutate(root, info, **args):
+        prod_image_id = args.get('prod_image_id')
+        try:
+            obj = Product.objects.get(pk=prod_image_id)
+        except Exception:
+            return DeleteProduct(success=False, errors={"error": "No existe el elemento con el id proporcionado."})
+        if obj:
+            obj.delete()
+            return DeleteProduct(success=True)
+        return DeleteProduct(success=False, errors={"error": "Error al acceder a la base de datos"})

@@ -3,7 +3,7 @@ from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.forms.mutation import DjangoModelFormMutation
 
 from .types import ProductType, ProductImageType
-from .mutations import ProductMutation, ProductImageMutation
+from .mutations import ProductMutation, ProductImageMutation, DeleteProduct, DeleteProductImage
 
 
 class Query(ObjectType):
@@ -17,3 +17,5 @@ class Query(ObjectType):
 class Mutation(ObjectType):
     mutate_product = ProductMutation.Field()
     mutate_product_image = ProductImageMutation.Field()
+    delete_product = DeleteProduct.Field()
+    delete_product_image = DeleteProductImage.Field()

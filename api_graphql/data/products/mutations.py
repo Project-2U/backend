@@ -11,7 +11,7 @@ from graphene_file_upload.scalars import Upload
 
 
 class ProductImageInput(graphene.InputObjectType):
-    image = graphene.List(Upload, required =True)
+    image = Upload(required =True)
     product = graphene.ID(required= True)
     id = graphene.ID()
 

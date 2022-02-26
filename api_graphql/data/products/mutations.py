@@ -11,7 +11,7 @@ from graphene_file_upload.scalars import Upload
 
 
 class ProductImageInput(graphene.InputObjectType):
-    image = Upload(required =True)
+    image = Upload(required = True)
     product = graphene.ID(required= True)
     id = graphene.ID()
 
@@ -30,7 +30,7 @@ class ProductImageMutation(graphene.Mutation):
     def mutate(cls, root, info, **data_input):
 
         data = data_input.get('input')
-        file_data = {"image": data.get('image')}
+        file_data = {"path_image": data.get('image')}
         if data.get('id'):
             product_image = ProductImage.objects.get(pk=data.get('id'))
             form = ProductImageMutation.form(data, instance=product_image)

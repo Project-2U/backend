@@ -34,7 +34,8 @@ class Product(models.Model):
 
 
 class ProductImage(models.Model):
-    path_image = CloudinaryField('image')
+    #path_image = CloudinaryField('image')
+    path_image = models.ImageField(_('imagen'), upload_to='products/', db_column="prod_image")
     product = models.ForeignKey(Product, verbose_name=_('producto'), db_column='prod_id', on_delete=models.CASCADE,
                                 related_name='images')
 

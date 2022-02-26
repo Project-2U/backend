@@ -195,5 +195,10 @@ cloudinary.config(
     api_key="565312376954761",
     api_secret="_7EUNBMlz5JDesqIpbksJ0dAxVY"
 )
+CLOUDINARY_STORAGE={
+    'CLOUD_NAME' : 'electricars',
+    'API_SECRET' : '_7EUNBMlz5JDesqIpbksJ0dAxVY',
+    'API_KEY' : "565312376954761"
+}
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

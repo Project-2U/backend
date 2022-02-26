@@ -18,6 +18,7 @@ django-cors-headers = "*"
 django-admin-interface = "*"
 graphene-file-upload = "*"
 cloudinary = "*"
+django-cloudinary-storage = "*"
 
 [dev-packages]
 

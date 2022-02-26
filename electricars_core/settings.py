@@ -186,11 +186,14 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'unicauca',
-    'API_KEY': '413654523827846',
-    'API_SECRET': 'ot99WovNoABGUkJTiiSBWQEs9xg'
-}
+cloudinary.config(
+    cloud_name="electricars",
+    api_key="565312376954761",
+    api_secret="_7EUNBMlz5JDesqIpbksJ0dAxVY"
+)
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

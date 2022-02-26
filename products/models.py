@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from cloudinary.models import  CloudinaryField
 
 # Create your models here.
 from categories.models import Category
@@ -33,8 +34,7 @@ class Product(models.Model):
 
 
 class ProductImage(models.Model):
-    path_image = models.ImageField(_('ruta de la imagen'), upload_to='media/products/', null=True, blank=True,
-                                   db_column="prod_image")
+    path_image = CloudinaryField('image')
     product = models.ForeignKey(Product, verbose_name=_('producto'), db_column='prod_id', on_delete=models.CASCADE,
                                 related_name='images')
 
@@ -43,5 +43,9 @@ class ProductImage(models.Model):
         verbose_name_plural = _('imagenes de productos')
         ordering = ['product']
 
-    def __str__(self):
-        return self.path_image
+    def __unicode__(self):
+        try:
+            public_id = self.path_image.public_id
+        except AttributeError:
+            public_id = ''
+        return "Photo <%s>" % public_id

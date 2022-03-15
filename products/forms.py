@@ -5,7 +5,7 @@ from .models import Product, ProductImage
 
 
 class ProductModelForm(forms.ModelForm):
-    name = forms.CharField(label="Nombre del producto", max_length=254, min_length=5)
+    name = forms.CharField(label="Nombre del producto", max_length=254, min_length=3)
     description = forms.CharField(label='Descripción', min_length=5, max_length=254, widget=forms.Textarea,
                                   required=False)
     discount = forms.IntegerField(min_value=0, max_value=100, label="Porcentaje de descuento", required=False)
